@@ -1,6 +1,7 @@
 <div class="room-veiwer">
   <h1>Bloc Chat</h1>
   <span class="new-room-button" type="button" ng-click="home.addRoom()">New Room</span>
+
   <div ng-repeat="room in Rooms">
     <p class="room-name" ng-click="home.setCurrentRoom(room)">{{ room.$value }}</p>
   </div>
