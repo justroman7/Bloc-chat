@@ -1,25 +1,20 @@
+
 (function() {
   function HomeCtrl(Room, Message, $scope, $uibModal) {
-    console.log(Room);
-
-    var home = this;
-    home.rooms = Room.all;
-    home.currentRoom = null;
+    this.rooms = Room.all;
 
     $scope.Rooms = Room.all;
-    home.addRoom = function() {
+    this.addRoom = function() {
       $uibModal.open({
         templateUrl: '/templates/modal.html',
-        size: 'sm',
         controller: 'ModalCtrl as modal'
       });
-    }
+    };
 
-    home.setCurrentRoom = function(room) {
-      home.currentRoom = room;
-      home.messages = Message.getByRoomId(home.currentRoom.$id);
-      console.log(home.messages)
-    }
+    this.setRoom = function(room) {
+      this.currentRoom = room;
+      this.currentMessages = Message.getByRoomId(this.currentRoom.$id);
+    };
   }
 
   angular

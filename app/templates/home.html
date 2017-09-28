@@ -1,16 +1,19 @@
-<div class="room-veiwer">
-  <h1>Bloc Chat</h1>
-  <span class="new-room-button" type="button" ng-click="home.addRoom()">New Room</span>
-  <div ng-repeat="room in Rooms">
-    <p class="room-name" ng-click="home.setCurrentRoom(room)">{{ room.$value }}</p>
+<section class="room-veiwer">
+  <div class="room-header"
+    <h1 class="room-title">Bloc Chat</h1>
+    <button class="new-room-button" type="button" ng-click="home.addRoom()">New Room</button>
   </div>
-</div>
-
-<div class="chat-section">
-  <h3 style="text-align:center;">{{ home.currentRoom.name }}</h3>
-  <div class="messages" ng-repeat="message in home.messages">
-    <div class="username" style="text-align:center;">{{ message.username }}</div>
-        <div class="timestamp" style="text-align:center;">{{ message.sentAt }}</div>
-        <div class="user-message" style="text-align:center;">{{ message.content }}</div>
+    <div class="room-body" ng-repeat="room in home.rooms">
+        <p class="room-name" ng-click="home.setRoom(room)">{{ room.$value }}</p>
     </div>
-</div>
+</section>
+
+<section class="chat">
+    <h3>{{ home.currentRoom.name }}</h3>
+
+    <div class="messages" ng-repeat="message in home.currentMessages">
+        <p class="user">{{ message.username }}</p>
+        <p class="msg">{{ message.content }}</p>
+        <p class="time">{{ message.sentAt }}</p>
+    </div>
+</section>

@@ -1,74 +1,92 @@
-.new-room-button {
-    border: 1px solid black;
-    padding: 1rem;
-    margin-top: 3rem;
-    margin-bottom: 1rem;
+html {
+    height: 100%;
+    font-size: 100%;
 }
 
-.new-room-button:hover {
-  cursor: pointer;
+body {
+    background-color: white;
 }
 
-.room-nav {
-    background-color: lightgray;
+.room-veiwer {
     position: fixed;
-    width: 25%;
     top: 0px;
     left: 0px;
+    width: 20%;
     height: 100%;
-    text-align:left;
-    padding-left: 5px;
+    background-color: lightgray;
+    z-index: 1;
 }
 
-.room-name {
-  margin-top: 2rem;
+.room-header {
+    padding-left: 10px;
+    margin-bottom: 5px;
+    display: table;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.room-name:hover {
-  cursor: pointer;
+.room-header .new-room-button {
+    margin: 0 5px;
 }
 
-.messages {
+.room-title {
+    display: inline-block;
+    padding-right: 15px;
+}
+
+.room-veiwer .room-name {
+    padding-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.room-veiwer .room-name:hover {
+    cursor: pointer;
+}
+
+.chat {
     position: fixed;
     top: 0px;
     left: 250px;
     width: 80%;
     height: 100%;
     background-color: white;
-    z-index: 1;
+    z-index: 9999;
     overflow: scroll;
 }
 
 
-.messages-body {
+.messages {
     padding-right: 10px;
 }
 
-.messages-body .username {
+.messages .user {
     font-weight: bold;
 }
 
-.messages-body .timestamp {
+.messages .time {
     float: right;
     padding-right: 100px;
 }
 
-.messages-body .username .timestamp {
+.messages .user .msg {
     display: inline-block;
 }
 
-.messages-body .user-message {
-    padding-top: 5px;
-    padding-bottom: 5px;
+.messages .msg {
+    padding-top: 1px;
+    padding-bottom: 2px;
     display: inline-block;
 }
 
-.message-field {
+.chat {
     bottom: 0;
     padding-bottom: 5px;
     position: fixed;
 }
 
-.message-box {
-    width: 800px;
+.modal {
+  position: fixed;
+  right: 75%;
+  z-index: 1;
 }
