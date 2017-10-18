@@ -1,7 +1,7 @@
 <section class="room-veiwer">
-  <div class="room-header"
+  <div class="room-header">
     <h1 class="room-title">Bloc Chat</h1>
-    <button class="new-room-button" type="button" ng-click="home.addRoom()">New Room</button>
+    <button class="btn btn-primary btn-block" data-toggle="modal" ng-click="home.addRoom()">New Room</button>
   </div>
     <div class="room-body" ng-repeat="room in home.rooms">
         <p class="room-name" ng-click="home.setRoom(room)">{{ room.$value }}</p>
@@ -12,8 +12,13 @@
     <h3>{{ home.currentRoom.name }}</h3>
 
     <div class="messages" ng-repeat="message in home.currentMessages">
-        <p class="user">{{ message.username }}</p>
-        <p class="msg">{{ message.content }}</p>
-        <p class="time">{{ message.sentAt }}</p>
+        <div class="user">{{ message.username }}</div>
+        <div class="msg">{{ message.content }}</div>
+        <div class="time">{{ message.sentAt | date: "shortTime" }}</div>
+      </div>
+
+    <div class="message-box">
+      <input type="text" placeholder="Chat here" ng-model="home.newMessage.content">
+      <button class="btn-new-message" type="button" ng-click="home.sendMessage()">send</button>
     </div>
 </section>
